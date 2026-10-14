@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>
+  <title>etymological orthography keyboard</title>
+  <link rel="icon" href="fish.png"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div>
+    <label for="long-vowel-format">Long Vowel Format</label>
+    <br/>
+    <select id="long-vowel-format" name="long-vowel-format">
+      <option selected value="expand">Expand ẹ eo</option>
+      <option value="double">Double ẹ ẹẹ</option>
+      <option value="mark">Mark ẹ ẹ́</option>
+    </select>
+  </div>
+  <div id="buttons" class="center">
+    <table>
+      <tr>
+        <td title="high front long" accesskey="ii">ıı</td>
+        <td title="high umlauted long" accesskey="yy">yy</td>
+        <td title="high umlaut-broken long" accesskey="iy">ıy</td>
+        <td title="high broken long" accesskey="io">ıo</td>
+        <td></td>
+        <td title="high back long" accesskey="uu">uu</td>
+      </tr>
+      <tr>
+        <td title="high front short" accesskey="i">ı</td>
+        <td title="high umlauted short" accesskey="y">y</td>
+        <td title="high umlaut-broken short" accesskey="i\\">ı̨</td>
+        <td title="high broken short" accesskey="i\">ı̣</td>
+        <td></td>
+        <td title="high back short" accesskey="u">u</td>
+      </tr>
+      <tr>
+        <td title="mid front long" accesskey="ee">ee</td>
+        <td title="mid umlauted long" accesskey="OO">ɘɘ</td>
+        <td></td>
+        <td title="mid broken long" accesskey="eo">eo</td>
+        <td></td>
+        <td title="mid back long" accesskey="oo">oo</td>
+      </tr>
+      <tr>
+        <td title="mid front short" accesskey="e">e</td>
+        <td title="mid umlauted short" accesskey="O">ɘ</td>
+        <td></td>
+        <td title="mid broken short" accesskey="e\">ẹ</td>
+        <td></td>
+        <td title="mid back short" accesskey="o">o</td>
+      </tr>
+      <tr>
+        <td title="low front long" accesskey="AA">ɐɐ</td>
+        <td></td>
+        <td></td>
+        <td title="low broken long" accesskey="Aa\">ɐɒ</td>
+        <td title="low back-unrounded long" accesskey="aa">ɑɑ</td>
+        <td title="low back-rounded long" accesskey="a\a\">ɒɒ</td>
+      </tr>
+      <tr>
+        <td title="low front short" accesskey="A">ɐ</td>
+        <td></td>
+        <td></td>
+        <td title="low broken short" accesskey="A\">ạ</td>
+        <td title="low back-unrounded short" accesskey="a">ɑ</td>
+        <td title="low back-rounded short" accesskey="a\">ɒ</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td title="labial nasal" accesskey="m">m</td>
+        <td title="coronal nasal" accesskey="n">n</td>
+        <td title="palatal(-ized/-izable) nasal" accesskey="n\">ɲ</td>
+        <td title="velar(-ized/-izable) nasal" accesskey="N">ŋ</td>
+
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td title="voiceless labial stop"  accesskey="p">p</td>
+        <td title="voiceless coronal stop" accesskey="t">t</td>
+        <td title="voiceless palatal stop" accesskey="C">ć</td>
+        <td title="voiceless velar stop"   accesskey="q">q</td>
+
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td title="voiced labial stop"  accesskey="b">b</td>
+        <td title="voiced coronal stop" accesskey="d">d</td>
+        <td title="voiced palatal stop" accesskey="G">ǵ</td>
+        <td title="voiced velar stop"   accesskey="g">ḡ</td>
+
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td title="voiced labial lenited-stop"  accesskey="6">6</td>
+        <td title="voiced coronal lenited-stop" accesskey="d\">δ</td>
+        <td title="voiced palatal lenited-stop" accesskey="G\">ȝ</td>
+        <td title="voiced velar lenited-stop"   accesskey="g\">ᵹ</td>
+
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td title="voiceless labial fricative"   accesskey="f">f</td>
+        <td title="voiceless coronal fricative"  accesskey="T">þ</td>
+        <td title="voiceless sibilant fricative" accesskey="s">s</td>
+        <td title="voiceless velar fricative"    accesskey="h">h</td>
+
+        <td></td>
+        <td title="morpheme boundary" accesskey="+">·</td>
+      </tr>
+      <tr>
+        <td title="voiced labial fricative"   accesskey="v">v</td>
+        <td title="voiced coronal fricative"  accesskey="D">ð</td>
+        <td title="voiced sibilant fricative" accesskey="z">z</td>
+        <td title="voiced velar fricative"    accesskey="H">ɦ</td>
+
+        <td></td>
+        <td title="contraction" accesskey="'">’</td>
+      </tr>
+      <tr>
+        <td title="labial-velar approximant" accesskey="w">w</td>
+        <td title="lateral" accesskey="l">l</td>
+        <td title="palatal approximant" accesskey="j">ȷ</td>
+        <td title="rhotic" accesskey="r">r</td>
+
+        <td></td>
+        <td title="irregular voicing" accesskey="`">‘</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div class="texty center">
+    <label>ASCII</label> <br/>
+    <input id="ascii-input"></input>
+  </div>
+  <br/><br/>
+  <div class="texty center">
+    <label>Etym</label> <br/>
+    <input readonly id="etym-output"></input>
+  </div>
+  <br/><br/>
+  <div class="texty center">
+    <label>Etym-Runes</label> <br/>
+    <input readonly id="rune-output"></input>
+  </div>
+  <br/><br/>
+  <div class="center" style="width: 50%;">
+    <button id="copy-button">Copy Etym</button>
+    <button id="clear-button">Clear Fields</button>
+    <a id="copy-indicator" style="opacity: 0;">Copied!</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
