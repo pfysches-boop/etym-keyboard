@@ -44,6 +44,8 @@ const after_map = [
   [ '\u0252\\', 'a' ],
   [ '\u1d79\\', 'g' ],
   [ '\u0250\\', 'a\u0323' ],
+  [ '\u0251\u0323', 'ạ'],
+  [ 'ɑ̣́', 'ạ́'],
   [ 'ı̨\\', 'i' ],
 ].sort((a, b) => (b[0].length - a[0].length))
 
@@ -187,9 +189,7 @@ const update = () => {
   }
 
   for(const [key, value] of letter_map) {
-    etym = etym.replaceAll(new RegExp(
-      `${key === '+' ? '\\+' : key.replaceAll('\\', '\\\\')}(^́)*`, 'g'
-    ), value)
+    etym = etym.replaceAll(key, value)
   }
   for(const [key, value] of after_map) {
     etym = etym.replaceAll(key, value)
