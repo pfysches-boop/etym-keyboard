@@ -96,6 +96,7 @@ const rune_map = [
   [ 'ɐ', 'ᚫ' ],
   [ 'ạ', 'ᛠ' ],
   [ 'ɑ', 'ᚪ' ],
+  [ 'a', 'ᚪ' ],
   [ 'ɒ', 'ᚪ' ],
 
   [ 'ı́', 'ᛁ́' ],
@@ -174,8 +175,8 @@ for(const button of buttons) {
   }
 }
 
-const update = () => {
-  let etym = input_element.value
+function ascii_to_etym(input) {
+  let etym = input
 
   if(long_format_dropdown.value === format_double) {
     for(const [key, value] of double_map) {
@@ -195,12 +196,20 @@ const update = () => {
     etym = etym.replaceAll(key, value)
   }
 
+  return etym
+}
+
+const update = () => {
+  const etym = ascii_to_etym(input_element.value)
   etym_element.value = etym
 
   let runes = etym
   for(const [key, value] of rune_map) {
     runes = runes.replaceAll(key, value)
   }
+  runes = runes.replaceAll(' ', '᛫')
+               .replaceAll(',', '᛬')
+               .replaceAll('.', '᛭')
 
   runes_element.value = runes
 }
@@ -211,18 +220,25 @@ input_element.addEventListener('onchange', update)
 
 
 const copy_indicator = document.getElementById('copy-indicator')
-const copy = () => {
-  navigator.clipboard.writeText(etym_element.value)
-
+function indicate_copy() {
   copy_indicator.className = 'fadeinout'
   setTimeout(() => { copy_indicator.className = '' }, 2000)
+}
+const copy_etym = () => {
+  navigator.clipboard.writeText(etym_element.value)
+  indicate_copy()
+}
+
+const copy_runes = () => {
+  navigator.clipboard.writeText(runes_element.value)
+  indicate_copy()
 }
 
 const keys = []
 document.addEventListener('keydown', evt => {
   keys[evt.key] = true
 
-  if(keys[ 'Control' ] && keys[ 'Shift' ] && keys[ ' ' ]) copy()
+  if(keys[ 'Control' ] && keys[ 'Shift' ] && keys[ ' ' ]) copy_etym()
 
   if(evt.key === 'Escape') aboutMenu.style.visibility = 'hidden'
 })
@@ -230,7 +246,8 @@ document.addEventListener('keyup', evt => {
   keys[evt.key] = false
 })
 
-document.getElementById('copy-button').onclick = copy
+document.getElementById('copy-etym-button').onclick = copy_etym
+document.getElementById('copy-runes-button').onclick = copy_runes
 
 document.getElementById('clear-button').onclick = evt => {
   input_element.value = ''
@@ -240,15 +257,9 @@ document.getElementById('clear-button').onclick = evt => {
 
 
 long_format_dropdown.onchange = evt => {
-  const format = long_format_dropdown.value
   for(const button of buttons) {
-    const current_text = button.innerHTML
-    if(!button.title.includes('long')) { continue }
+    // if(!button.title.includes('long')) { continue }
 
-    button.innerHTML = format === format_double ?
-      (double_map.find(pair => pair[0] === button.accessKey) ?? [ '', current_text ])[1]
-      : format === format_mark ?
-      (mark_map.find(pair => pair[0] === button.accessKey) ?? [ '', current_text ])[1]
-      : (letter_map.find(pair => pair[0] === button.accessKey[0]) ?? [ '', button.accessKey[0] ])[1] + (letter_map.find(pair => pair[0] === button.accessKey[1]) ?? [ '', button.accessKey[1] ])[1]
+    button.innerHTML = ascii_to_etym(button.accessKey)
   }
 }
