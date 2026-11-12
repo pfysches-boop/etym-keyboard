@@ -1,28 +1,101 @@
 <!DOCTYPE html>
 <head>
-  <title>etymological orthography keyboard</title>
-  <link rel="icon" href="fish.png"/>
-  <link rel="stylesheet" href="style.css"/>
+<title>etymological spelling keyboard</title>
+<link rel="icon" href="fish.png"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <div>
-    <label for="long-vowel-format">Long Vowel Format</label>
-    <br/>
-    <select id="long-vowel-format" name="long-vowel-format">
-      <option selected value="expand">Expand ẹ eo</option>
-      <option value="double">Double ẹ ẹẹ</option>
-      <option value="mark">Mark ẹ ẹ́</option>
-    </select>
+  <div id="overlay" class="overlay" style="visibility: hidden;">
+    <div>
+      <label class="small" for="settings-long-mode">Long Vowel Format</label>
+      <select name="settings-long-mode" id="settings-long-mode">
+        <option value="acute">acute [ẹ ẹ́]</option>
+        <option value="double">double [ẹ ẹẹ]</option>
+        <option value="unpack" selected>unpack [ẹ eo]</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-i">High Front</label>
+      <select name="settings-i" id="settings-i">
+        <option value="ı" selected>ı</option>
+        <option value="i">i</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-O">Mid Umlauted</label>
+      <select name="settings-O" id="settings-O">
+        <option value="ɘ" selected>ɘ</option>
+        <option value="œ">œ</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-A">Low Front</label>
+      <select name="settings-A" id="settings-A">
+        <option value="ɐ" selected>ɐ</option>
+        <option value="æ">æ</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-a">(Native) Low Back</label>
+      <select name="settings-a" id="settings-a">
+        <option value="ɑ" selected>ɑ</option>
+        <option value="a">a</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-a\">Low Back-Rounded</label>
+      <select name="settings-a\" id="settings-a\">
+        <option value="ɒ" selected>ɒ</option>
+        <option value="ą">ą</option>
+        <option value="ɑ̨">ɑ̨</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-n\">Palatal Nasal</label>
+      <select name="settings-n\" id="settings-n\">
+        <option value="ɲ" selected>ɲ</option>
+        <option value="ń">ń</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-q">(Native) Voiceless Velar Stop</label>
+      <select name="settings-q" id="settings-q">
+        <option value="q" selected>q</option>
+        <option value="c">c</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-g">(Native) Voiced Velar Stop</label>
+      <select name="settings-g" id="settings-g">
+        <option value="ḡ" selected>ḡ</option>
+        <option value="g">g</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-w">Rounded-Velar Approximant</label>
+      <select name="settings-w" id="settings-w">
+        <option value="ʋ" selected>ʋ</option>
+        <option value="w">w</option>
+      </select>
+    </div>
+    <div>
+      <label class="small" for="settings-j">Palatal Approximant</label>
+      <select name="settings-j" id="settings-j">
+        <option value="ȷ" selected>ȷ</option>
+        <option value="j">j</option>
+      </select>
+    </div>
   </div>
+
   <div id="buttons" class="center">
     <table>
       <tr>
-        <td title="high front long" accesskey="ii">ıı</td>
-        <td title="high umlauted long" accesskey="yy">yy</td>
-        <td title="high umlaut-broken long" accesskey="iy">ıy</td>
-        <td title="high broken long" accesskey="io">ıo</td>
+        <td title="high front long" accesskey="iL">ıı</td>
+        <td title="high umlauted long" accesskey="yL">yy</td>
+        <td title="high umlaut-broken long" accesskey="i\\L">ıy</td>
+        <td title="high broken long" accesskey="i\L">ıo</td>
         <td></td>
-        <td title="high back long" accesskey="uu">uu</td>
+        <td title="high back long" accesskey="uL">uu</td>
       </tr>
       <tr>
         <td title="high front short" accesskey="i">ı</td>
@@ -33,12 +106,12 @@
         <td title="high back short" accesskey="u">u</td>
       </tr>
       <tr>
-        <td title="mid front long" accesskey="ee">ee</td>
-        <td title="mid umlauted long" accesskey="OO">ɘɘ</td>
+        <td title="mid front long" accesskey="eL">ee</td>
+        <td title="mid umlauted long" accesskey="OL">ɘɘ</td>
         <td></td>
-        <td title="mid broken long" accesskey="eo">eo</td>
+        <td title="mid broken long" accesskey="e\L">eo</td>
         <td></td>
-        <td title="mid back long" accesskey="oo">oo</td>
+        <td title="mid back long" accesskey="oL">oo</td>
       </tr>
       <tr>
         <td title="mid front short" accesskey="e">e</td>
@@ -49,12 +122,12 @@
         <td title="mid back short" accesskey="o">o</td>
       </tr>
       <tr>
-        <td title="low front long" accesskey="AA">ɐɐ</td>
+        <td title="low front long" accesskey="AL">ɐɐ</td>
         <td></td>
         <td></td>
-        <td title="low broken long" accesskey="Aa\">ɐɒ</td>
-        <td title="low back-unrounded long" accesskey="aa">ɑɑ</td>
-        <td title="low back-rounded long" accesskey="a\a\">ɒɒ</td>
+        <td title="low broken long" accesskey="A\L">ɐɒ</td>
+        <td title="low back-unrounded long" accesskey="aL">ɑɑ</td>
+        <td title="low back-rounded long" accesskey="a\L">ɒɒ</td>
       </tr>
       <tr>
         <td title="low front short" accesskey="A">ɐ</td>
@@ -127,7 +200,7 @@
         <td title="contraction" accesskey="'">’</td>
       </tr>
       <tr>
-        <td title="labial-velar approximant" accesskey="w">w</td>
+        <td title="rounded-velar approximant" accesskey="w">w</td>
         <td title="lateral" accesskey="l">l</td>
         <td title="palatal approximant" accesskey="j">ȷ</td>
         <td title="rhotic" accesskey="r">r</td>
@@ -155,11 +228,13 @@
   </div>
   <br/><br/>
   <div class="center" style="width: 50%;">
-    <button id="copy-etym-button">Copy Latin</button>
+    <button id="copy-latin-button">Copy Latin</button>
     <button id="copy-runes-button">Copy Runes</button>
     <button id="clear-button">Clear Fields</button>
     <a id="copy-indicator" style="opacity: 0;">Copied!</a>
   </div>
 
-  <script src="main.js"></script>
+  <script src="js/encoding.js"></script>
+  <script src="js/map.js"></script>
+  <script src="js/main.js"></script>
 </body>
